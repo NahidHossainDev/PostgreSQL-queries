@@ -97,3 +97,35 @@ SELECT * from users
 
 
 
+
+-- Department table
+-- Each department has many employee
+CREATE TABLE occupations(
+    department_id SERIAL PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+delete from occupations WHERE department_id = 2
+
+insert INTO occupations (department_name) 
+VALUES( 'Engineer');
+
+SELECT * from occupations;
+
+-- ALTER Table occupation rename to occupations;
+
+CREATE TABLE employee(
+    employ_id SERIAL PRIMARY KEY,
+    employ_name VARCHAR(50),
+    occupation INT,
+    constraint fk_constraint_occupation
+        Foreign Key (occupation) REFERENCES occupations(department_id)
+)
+
+
+insert into employee VALUES (1, 'Nahid', 3);
+
+DELETE from employee WHERE employ_id=1
+
+select * from employee
+
