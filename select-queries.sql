@@ -99,3 +99,10 @@ WHERE employ_name LIKE 'bc'
 --  find a character in a specific position
 SELECT * from employees 
 WHERE employ_name LIKE '__c%' 
+
+
+
+-- ## JOIN
+select employees.employ_id, employees.employ_name, employees.salary, occupations.department_name
+from employees
+inner join occupations on employees.department = occupations.department_id
