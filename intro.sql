@@ -129,3 +129,31 @@ DELETE from employee WHERE employ_id=1
 
 select * from employee
 
+
+
+create table courses(
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(255) not null,
+    description VARCHAR(255),
+    published_date DATE
+);
+
+insert into courses (course_name, description, published_date)
+VALUES 
+    ('PostgreSql for developers', 'A complete postgresql for developers', '2024-07-23'),
+    ('PostgreSql Administration', 'A  postgresql guide for DBA', null),
+    ('PostgreSql for high performance', null, null),
+    ('PostgreSql Bootcamp', 'Learn db by bootcamp', '2024-07-21'),
+    ('PostgreSql Mastering', 'Mastering postgresql in 21 days', '2024-06-30');
+
+select * from courses
+
+--  update row values
+update courses SET
+    course_name = 'PostgreSQL for administration',
+    published_date='2024-05-12'
+    WHERE course_id=2
+
+
+-- delete row
+delete from courses WHERE course_id=3
