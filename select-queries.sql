@@ -106,3 +106,21 @@ WHERE employ_name LIKE '__c%'
 select employees.employ_id, employees.employ_name, employees.salary, occupations.department_name
 from employees
 inner join occupations on employees.department = occupations.department_id
+
+
+-- Aggregate function 
+select avg( salary) from employees
+
+select  sum(salary), min(salary), max(salary), avg( salary) from employees GROUP BY department 
+
+
+-- join and aggregate
+SELECT o.department_name, min(e.salary), max(e.salary), sum(e.salary), count(o.department_id) as Total_Count FROM employees e  
+FULL JOIN occupations o ON e.department = o.department_id
+GROUP BY o.department_name
+
+
+-- join and aggregate with condition
+SELECT o.department_name, min(e.salary), max(e.salary), sum(e.salary), count(o.department_id) FROM employees e  
+FULL JOIN occupations o ON e.department = o.department_id
+GROUP BY o.department_name HAVING e.salary > 70000;
